@@ -1,0 +1,151 @@
+\documentclass[12pt,openany]{book}
+\usepackage[12pt]{moresize}
+\usepackage[utf8]{inputenc}
+\usepackage[greek,english]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{titlesec}
+\usepackage{ebgaramond}
+\usepackage[dotinlabels]{titletoc}
+
+\usepackage{csquotes}
+\MakeOuterQuote{"}
+
+%=======PARAGRAPH FORMATTING=========%
+\setlength{\parindent}{2em}
+\newcommand{\clarify}{\fontfamily{cmr}\selectfont}
+
+%=======CHAPTER FORMATTING=========%
+\renewcommand\thechapter{\Roman{chapter}}
+
+\titleformat
+{\chapter} 
+[display]
+{\centering\scshape\fontfamily{ppl}\large} 
+{\thechapter} 
+{\leftmargin}{\vspace{-1.5em}}[]
+
+\titleformat
+{\part} 
+[display]
+{\centering\scshape\fontfamily{ppl}\LARGE} 
+{} 
+{\leftmargin}
+{}
+[]
+
+\makeatletter
+\@addtoreset{chapter}{part}		%reset chapter counter at part
+\makeatother  
+
+\newcommand{\mychapter}[1]{\chapter{#1}\fancyhead[LO]{\scshape \thechapter. #1}}
+
+\newcommand{\mypart}[2]
+	{
+	\part*{
+	Part #1 \\ \vspace{1ex} 
+	#2
+	}
+	\fancyhead[RE]{\scshape #2}
+	\stepcounter{part}
+	}
+
+%=======FOOTNOTE FORMATTING=========%
+\renewcommand{\thefootnote}{[\fontfamily{ppl}\selectfont\arabic{footnote}]}
+\setlength{\skip\footins}{1cm}
+\usepackage[]{footmisc}
+\renewcommand{\footnotemargin}{3mm} %Setting left margin
+\renewcommand{\footnotelayout}{\hspace{2mm}} %spacing between the footnote number and the text of footnote
+
+\usepackage{fancyhdr}
+
+\fancypagestyle{plain}
+{
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyhf{}%
+}
+ 
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+
+\title{\Huge\bfseries\scshape{The Practice and Theory of \\ \vspace{1ex} \HUGE Bolshevism}}
+\author{\Large Bertrand Russell}
+\date{1920}
+
+%=======TABLE OF CONTENTS FORMATTING=========%
+
+
+\titlecontents{chapter}% formatting-toc-chapters
+    [1cm]% <left-indent>
+    {\vspace{8pt}}% <above-code>
+    {\scshape\contentslabel{2.3em}\quad}% <numbered-entry-format>
+    {\scshape\contentslabel{2.3em}\quad}% <numberless-entry-format>
+    {\titlerule*[1em]{.}\contentspage}% <filler-page-format>
+
+\titlecontents{part}% formatting-toc-chapters
+    [0pt]% <left-indent>
+    {\vspace{1em}\centering}% <above-code>
+    {}% <numbered-entry-format>
+    {\scshape\large}% <numberless-entry-format>
+    {}% <filler-page-format>
+
+
+\usepackage[linktocpage]{hyperref}
+\hypersetup{bookmarksnumbered}
+
+%=======MAIN DOCUMENT=========%
+\begin{document}
+
+\begin{titlepage}
+    \maketitle
+\end{titlepage}
+\titlespacing{\chapter}{0mm}{0em}{1em}
+\chapter*{Preface}
+\addcontentsline{toc}{chapter}{Preface}
+\fancyhead[LO]{\scshape Preface}
+\input{preface.tex}
+
+\titlespacing{\chapter}{0mm}{1em}{1em}
+\renewcommand*\contentsname{\LARGE Table of Contents}
+\tableofcontents
+\titlespacing{\chapter}{0mm}{-2em}{1em}
+
+\mypart{I}{The Present Condition of Russia}
+
+\mychapter{What is Hoped for Bolshevism}
+\input{bolshi_i_1.tex}
+\mychapter{General Characteristics}
+\input{bolshi_i_2.tex}
+\mychapter{Lenin, Trotsky and Gorky}
+\input{bolshi_i_3.tex}
+\mychapter{Art and Education}
+\input{bolshi_i_4.tex}
+\mychapter{Communism and the Soviet Constitution}
+\input{bolshi_i_5.tex}
+\mychapter{The Failure of Russian Industry}
+\input{bolshi_i_6.tex}
+\mychapter{Daily Life in Moscow}
+\input{bolshi_i_7.tex}
+\mychapter{Town and Country}
+\input{bolshi_i_8.tex}
+\mychapter{International Policy}
+\input{bolshi_i_9.tex}
+
+\mypart{II}{Bolshevik Theory}
+
+\mychapter{The Materialistic Theory of History}
+\input{bolshi_ii_1.tex}
+\mychapter{Deciding Forces in Politics}
+\input{bolshi_ii_2.tex}
+\mychapter{Bolshevik Criticism of Democracy}
+\input{bolshi_ii_3.tex}
+\mychapter{Revolution and Dictatorship}
+\input{bolshi_ii_4.tex}
+\mychapter{Mechanism and the Individual}
+\input{bolshi_ii_5.tex}
+\mychapter{Why Russian Communism Has Failed}
+\input{bolshi_ii_6.tex}
+\mychapter{Conditions for the Success of Communism}
+\input{bolshi_ii_7.tex}
+
+\end{document}

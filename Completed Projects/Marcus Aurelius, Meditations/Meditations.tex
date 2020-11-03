@@ -1,0 +1,116 @@
+\documentclass[12pt,openany]{book}
+\usepackage[12pt]{moresize}
+\usepackage[utf8x]{inputenc}
+\usepackage[greek,english]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{titlesec}
+\usepackage{ebgaramond}
+\usepackage{titletoc}
+\usepackage{enumitem}
+\usepackage{csquotes}
+
+%=======PARAGRAPH FORMATTING=========%
+
+\setlength{\parskip}{1em}   %single space between paragraphs
+\newcommand{\clarify}{\fontfamily{cmr}\selectfont}
+
+%=======CHAPTER FORMATTING=========%
+\renewcommand\thechapter{\scshape Book \Roman{chapter}}
+
+\titleformat
+{\chapter} 
+[display]
+{\centering\scshape\fontfamily{ppl}\Huge} 
+{\thechapter} 
+{\leftmargin}{}[]
+
+%=======FOOTNOTE FORMATTING=========%
+\renewcommand{\thefootnote}{[\fontfamily{ppl}\selectfont\arabic{footnote}]}
+\setlength{\skip\footins}{1cm}
+\usepackage[]{footmisc}
+\renewcommand{\footnotemargin}{3mm} %Setting left margin
+\renewcommand{\footnotelayout}{\hspace{2mm}} %spacing between the footnote number and the text of footnote
+
+\usepackage{fancyhdr}
+
+\fancypagestyle{plain}
+{
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyhf{}%
+}
+ 
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+
+\title{\Huge\bfseries\scshape{The Meditations of\\ \huge Marcus Aurelius Antoninus}}
+\author{\Large Translated by George Long}
+\date{1862}
+
+\usepackage[linktocpage]{hyperref}
+\hypersetup{bookmarksnumbered}
+
+%=======TABLE OF CONTENTS FORMATTING=========%
+\titlespacing{\chapter}{0mm}{-2em}{1em}
+\titlecontents{chapter}% formatting-toc-chapters
+    [0pt]% <left-indent>
+    {}% <above-code>
+    {\bfseries \thecontentslabel}% <numbered-entry-format>
+    {}% <numberless-entry-format>
+    {\bfseries\hfill\contentspage}% <filler-page-format>
+
+\setlist[enumerate,1]{wide, labelwidth=!, labelindent=0pt, font =\small\fontfamily{ppl}\selectfont}
+
+
+%=======MAIN DOCUMENT=========%
+\begin{document}
+
+\begin{titlepage}
+    \maketitle
+\end{titlepage}
+
+\renewcommand*\contentsname{Table of Contents}
+\tableofcontents
+
+\titlespacing{\chapter}{0mm}{-2em}{-4em}
+
+\fancyhead[LO]{{\thechapter}}
+\fancyhead[RE]{\scshape The Meditations of Marcus Aurelius}
+
+\chapter{}
+\input{med1.tex}
+\chapter{}
+\input{med2.tex}
+\chapter{}
+\input{med3.tex}
+\chapter{}
+\input{med4.tex}
+\chapter{}
+\input{med5.tex}
+\chapter{}
+\input{med6.tex}
+\chapter{}
+\input{med7.tex}
+\chapter{}
+\input{med8.tex}
+\chapter{}
+\input{med9.tex}
+\chapter{}
+\input{med10.tex}
+\chapter{}
+\input{med11.tex}
+\chapter{}
+\input{med12.tex}
+
+\fancyhead[LO]{\scshape Glossary}
+\titlespacing{\chapter}{0mm}{-3em}{1.5em}
+\chapter*{Glossary}
+\addcontentsline{toc}{chapter}{\scshape Glossary}
+\input{greek.tex}
+
+
+\fancyhead[LO]{\scshape Index}
+\chapter*{Index}
+\addcontentsline{toc}{chapter}{\scshape Index}
+\input{index.tex}
+\end{document}
